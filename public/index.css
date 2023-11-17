@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@font-face {
+  font-family: 'MyFont';
+  src: local('MyFont'), url(./Poppins-ExtraBold.ttf) format('ttf');
+  /* other formats include: 'woff2', 'truetype, 'opentype',
+                            'embedded-opentype', and 'svg' */
+}
+
+* {
+  font-family: 'Poppins';
+  letter-spacing: 1px;
+}
