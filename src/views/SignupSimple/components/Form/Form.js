@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import google from 'svg/illustrations/google.png';
@@ -267,10 +266,11 @@ const Form = () => {
                   </FormControl>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Button
+                  <ButtonComponent
                     sx={{
                       height: '100%',
                     }}
+                    loading={loading}
                     fullWidth
                     onClick={registerWithGoogle}
                     variant="outlined"
@@ -285,7 +285,7 @@ const Form = () => {
                     }
                   >
                     Sign Up With Google
-                  </Button>
+                  </ButtonComponent>
                 </Grid>
                 <Box
                   display="flex"

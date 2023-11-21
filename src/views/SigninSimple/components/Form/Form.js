@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Avatar, Modal } from '@mui/material';
@@ -17,6 +16,7 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import TextInput from '../TextInput/TextInput';
 import constants from 'app-constants';
+import ButtonComponent from 'components/Button';
 
 const modalStyle = {
   position: 'absolute',
@@ -56,6 +56,8 @@ const Form = () => {
   const [modalHeading, setModalHeading] = useState('');
   const [modalText, setModalText] = useState('');
 
+  const [loading, setLoading] = useState(false);
+
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
@@ -89,6 +91,7 @@ const Form = () => {
       setModalHeading,
       setModalText,
       handleModalOpen,
+      setLoading,
     );
     return values;
   };
@@ -136,6 +139,7 @@ const Form = () => {
       setModalHeading,
       setModalText,
       handleModalOpen,
+      setLoading,
     );
   };
 
@@ -188,14 +192,15 @@ const Form = () => {
           })}
 
           <Grid item xs={12} sm={12}>
-            <Button
+            <ButtonComponent
+              loading={loading}
               fullWidth
               onClick={formik.handleSubmit}
               type="submit"
               variant="contained"
             >
               Log In
-            </Button>
+            </ButtonComponent>
           </Grid>
 
           <Grid item xs={12} sm={12}>
@@ -223,10 +228,11 @@ const Form = () => {
             xs={12}
           >
             <Grid item xs={12} sm={12}>
-              <Button
+              <ButtonComponent
                 sx={{
                   height: '100%',
                 }}
+                loading={loading}
                 fullWidth
                 onClick={loginWithGoogle}
                 variant="outlined"
@@ -241,7 +247,7 @@ const Form = () => {
                 }
               >
                 Log In With Google
-              </Button>
+              </ButtonComponent>
             </Grid>
           </Grid>
 

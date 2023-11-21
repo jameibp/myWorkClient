@@ -171,6 +171,7 @@ const globalApis = {
     setModalHeading,
     setModalText,
     handleModalOpen,
+    setLoading,
   ) => {
     if (!data.error) {
       if (response.status === 200) {
@@ -267,6 +268,7 @@ const globalApis = {
         handleModalOpen();
       }
     }
+    setLoading(false);
   },
 };
 

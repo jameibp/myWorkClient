@@ -82,7 +82,10 @@ const apis = {
     setModalHeading,
     setModalText,
     handleModalOpen,
+    setLoading,
   ) => {
+    setModalHeading(true);
+
     const { email, password, accountType } = values;
     const requestOptions = {
       method: 'POST',
@@ -120,6 +123,7 @@ const apis = {
       setModalHeading,
       setModalText,
       handleModalOpen,
+      setLoading,
     );
   },
 
@@ -144,8 +148,10 @@ const apis = {
     setModalHeading,
     setModalText,
     handleModalOpen,
+    setLoading,
   ) => {
     try {
+      setLoading(true);
       const res = await signInWithPopup(auth, provider);
       const token = await res.user.getIdToken();
       const requestOptions = {
@@ -177,6 +183,7 @@ const apis = {
         setModalHeading,
         setModalText,
         handleModalOpen,
+        setLoading,
       );
     } catch (error) {
       console.log(error.message);
